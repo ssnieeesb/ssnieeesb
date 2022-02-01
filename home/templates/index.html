@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block homelink %}/{% endblock %}
+{% block homelink1 %}/{% endblock %}
+{% block homelink2 %}/{% endblock %}
+{% block upcoming %}/upcoming_events{% endblock %}
+{% block upcoming1 %}/upcoming_events{% endblock %}
+{% block past %}/past_events{% endblock %}
+{% block about %}/about{% endblock %}
+{% block gallery%}/gallery{% endblock %}
+{% block contact %}/contact{% endblock %}
+{% block home_active %}class = "active"{% endblock %}
+{% block content %}
+    <div style="background-repeat: no-repeat; opacity: 0.65; background-image: url('{% static 'assets/images/back2.jpg' %}'); background-size: contain;" id="page-wrapper">
+                <section id="banner">
+                	<div class="inner">
+
+						<header>
+							<h2>SSN IEEE Student Branch</h2>
+						</header>
+						<p style="font-weight: bolder; font-size: 25px;">Welcome to SSN IEEE Student Branch
+						<footer>
+							<ul class="buttons vertical">
+                                <li><a style="width: 30%; background-color: transparent; color: #ffffff; text-shadow: 2px 2px black; opacity: 0.8;" href="#main" class="button scrolly">Dive In</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+        <article id="main">
+                    <div class="row">
+                        <div class="col col-sm-1 col-md-2 col-lg-2 col-xs-1 col-xl-2">
+
+                        </div>
+                        <div class="col col-sm-10 sol-md-8 col-lg-8 colxs-10 col-xl-8">
+                            <video controls poster="{% static 'assets/images/banner.png' %}">
+                        <source src="{% static 'assets/video/IEEE -- Promo Video.mp4' %}" type='video/mp4'>
+                            </video>
+                        </div>
+                        <div class="col col-sm-1 col-md-2 col-lg-2 col-xs-1 col-xl-2">
+
+                        </div>
+
+                    </div>
+                    <section class="wrapper style2 container special-alt">
+							<div class="row 50%">
+								<div class="12u 12u(narrower)">
+
+									<header>
+										<h2 style="text-align: center; font-weight: 900; font-size: larger;">Recent News</h2>
+									</header>
+									<div class="marquee" style="font-weight: 900;">
+                                        <ol>
+                                            <li>
+                                                    <header class="marquee-header"><strong><h1 class="marquee-center">Ms. Ruba M, Co- Secretary, SSN IEEE student branch, has been selected as an IEEEXtreme 11.0
+                                                        Student Ambassador – 2017.</h1></strong></header></li>
+                                            <br>
+                                                <li>
+                                                    <header class="marquee-header"><strong><h1 class="marquee-center">Mr. Mathirajan E, Publicity Incharge, SSN IEEE student branch, has been selected as a delegate
+for the sponsorship by Madras Section to attend AISYWC-2017 being held at IIIT Allahabad
+during 27-30 Sep 2017.</h1></strong></header>
+                                                </li>
+                                            <br>
+                                            <li>
+                                                    <header class="marquee-header"><strong><h1 class="marquee-center">IEEE Madras Section appreciated our college for our active participation in the year 2016 and classified our college as Grade "A".</h1></strong></header>
+                                                </li>
+                                            <br>
+                                                <li>
+                                                    <header class="marquee-header"><strong><h1 class="marquee-center">Mr. Kavin D, Chair, SSN IEEE student branch, has been selected as a Digital Marketing Coordinator in R10 Student Activities Committee Team. </h1></strong></header>
+                                                </li>
+                                            <br>
+
+
+                                        </ol>
+                                    </div>
+                                    <br><br><br>
+                                    <footer style="text-align: center;">
+									</footer>
+
+								</div>
+							</div>
+						</section>
+                    <header class="special container">
+                        <h2><strong>About SSN</strong></h2>
+						<p class="text_justify">SSN Institutions, founded by Padma 
+							Bhushan Dr. Shiv Nadar, Chairman, HCL Technologies, stands 
+							out as a premier centre of higher learning with a mission of 
+							pursuing excellence in education and research. The institutions 
+							are named after the Chairman’s father Sri Sivasubramaniya Nadar. 
+							The institutions, with their diverse and dynamic community of 
+							students offer a distinctive combination of some of the finest 
+							graduate, undergraduate and research programs, accomplished 
+							faculty, world class facilities and a residential campus set on a 
+							sprawling 230 acres of sylvan surroundings. While students at 
+							SSN immerse themselves in academics, the college has a lot in 
+							store for them outside the classroom. Student life includes 
+							participation in sports, recreational, co-curricular and cultural 
+							activities. In short, at SSN, students will find an academic and 
+							social environment where everyone- from faculty members to peers 
+							helps shape their future.</p>
+                        <br>
+                        <br>
+                        <h2><strong>About IEEE</strong></h2>
+                        <p class="text_justify">IEEE is the world’s largest technical professional 
+							organization for the advancement of technology. IEEE and its members 
+							inspire a global community to innovate for a better tomorrow through highly 
+							cited publications, conferences, technology standards, and professional and 
+							educational activities. IEEE is the trusted “voice” for engineering, 
+							computing, and technology information around the globe.</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style2 container special-alt">
+							<div class="row 50%">
+								<div class="12u 12u(narrower)">
+
+									<header>
+										<h2 style="text-align: center; font-weight: 900; font-size: larger;">Upcoming Events</h2>
+									</header>
+									<div class="marquee" style="font-weight: 900;">
+                                        <ol>
+                                        {% if not events %}
+                                            <li><p class="marquee-center">No Upcoming Events. Check after some time.</p></li>
+                                        {% endif %}
+                                            {% for item in events %}
+                                                <li>
+                                                    <header class="marquee-header"><strong><h1 class="marquee-center"><a href="{% url 'home:details' item.id %}">{{ item.name }}</a></h1></strong></header>
+                                                <p class="marquee-center">{{ item.start_date }}</p>
+                                                <p class="marquee-center" id="hosts{{ item.id }}"></p>
+                                                    {% if item.registration_link != 'NIL' %}
+                                                    <p class="marquee-center">Register here: {{ item.registration_link }}</p>
+                                                    {% else %}
+                                                         <p class="marquee-center">On Spot Registration.</p>
+                                                    {% endif %}
+                                                </li>
+                                                <script>
+                                                var host = ["Department of Information Technology", "Computer Science Department",
+                                                    "Chemical Department", "Mechanical Department", "Bio-Medical Department", "ECE Department",
+                                                    "EEE Department", "Civil Department", "IEEE SB"];
+                                                var hostingDepartment = host[{{ item.host }}];
+                                                var item_id = {{ item.id }};
+                                                var idName = "hosts" + item_id;
+                                                document.getElementById(idName).innerHTML += hostingDepartment;
+                                                </script>
+                                                <br><br>
+
+                                            {% endfor %}
+
+                                        </ol>
+                                    </div>
+                                    <br><br><br>
+                                    <footer style="text-align: center;">
+										<ul class="buttons">
+											<li><a href="/upcoming_events" class="button">Find Out More</a></li>
+										</ul>
+									</footer>
+
+								</div>
+							</div>
+						</section>
+
+					<!-- Two -->
+
+					<!-- Three -->
+						<section style="margin-top: -8%;" class="wrapper style3 container special">
+							<header class="major">
+								<h2>QUICK LINKS</h2>
+							</header>
+
+							<div class="row">
+								<div class="4u 12u(narrower)">
+
+
+									<section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="https://www.ieee.org/index.html" target="_blank" class="button">IEEE Official Site</a></li>
+								            </ul>
+										</header>
+										<p>Get to know IEEE by visiting their official site.</p>
+									</section>
+                                    <br>
+                                    <section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="http://sites.ieee.org/indiacouncil/" target="_blank" class="button">IEEE India Council</a></li>
+								            </ul>
+										</header>
+										<p>Know about IEEE India Council.</p>
+									</section>
+                                    <br>
+                                    <section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="http://www.ieeer10.org/" target="_blank" class="button">IEEE REGION 10</a></li>
+								            </ul>
+										</header>
+										<p>Know about IEEE Region 10.</p>
+									</section>
+
+
+
+								</div>
+								<div class="4u 12u(narrower)">
+                                    <section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="https://www.ieee.org/membership_services/membership/join/index.html?WT.mc_id=hc_join" target="_blank" class="button">Join IEEE</a></li>
+								            </ul>
+										</header>
+										<p>Join IEEE today and make a difference.</p>
+									</section>
+                                    <br>
+
+                                    <section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="https://www.ieeemadras.org/" target="_blank" class="button">IEEE Madras Section</a></li>
+								            </ul>
+										</header>
+										<p>Visit the home page of one of the most active section of IEEE.</p>
+									</section>
+
+
+								</div>
+                                <div class="4u 12u(narrower)">
+
+									<section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="http://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank" class="button">IEEE Xplore</a></li>
+								            </ul>
+										</header>
+										<p>Visit IEEE's Digital Library.</p>
+									</section>
+                                      <br><br>
+                                    <section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="http://spectrum.ieee.org/" target="_blank" class="button">IEEE Spectrum</a></li>
+								            </ul>
+										</header>
+										<p>Know more about the flagship magazine by IEEE.</p>
+									</section>
+                                    <section>
+										<header>
+                                            <ul class="buttons quicklinks">
+									        <li><a href="https://www.ieee.org/standards/index.html" target="_blank" class="button">IEEE Standards</a></li>
+								            </ul>
+										</header>
+										<p>Know more about IEEE.</p>
+									</section>
+
+								</div>
+							</div>
+
+							<footer class="major">
+								<ul class="buttons">
+									<li><a href="http://www.ieee.org/sitemap.html?WT.mc_id=mn_smap" target="_blank" class="button">See More</a></li>
+								</ul>
+							</footer>
+
+						</section>
+
+				</article>
+    </div>
+{% endblock %}
