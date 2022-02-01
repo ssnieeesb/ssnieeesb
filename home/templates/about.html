@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block homelink %}../{% endblock %}
+{% block homelink1 %}../{% endblock %}
+{% block upcoming %}../upcoming_events{% endblock %}
+{% block upcoming1 %}../upcoming_events{% endblock %}
+{% block homelink2 %}/{% endblock %}
+{% block past %}../past_events{% endblock %}
+{% block about %}../about{% endblock %}
+{% block gallery%}../gallery{% endblock %}
+{% block contact %}../contact{% endblock %}
+{% block about_active %}class = "active"{% endblock %}
+{% block content %}
+    <section style="background-repeat: no-repeat; opacity: 0.65; background-size: cover; background-image: url('{% static 'assets/images/back3.jpg' %}');
+     " id="banner">
+                    <div class="inner">
+
+						<header>
+							<h2>About</h2>
+						</header>
+					</div>
+
+    </section>
+
+    <script>
+        function getURL() {
+            alert("The URL of this page is: " + window.location.href);
+        }
+        </script>
+        <style>
+            .contents{
+                margin-top:15%;
+            }
+            p{
+                font-size: 1.4rem;
+            }
+            .mission_content{
+                list-style-type: disc;
+                text-align: start;
+                padding:8%;
+                font-size:1.4rem;
+            }
+            .branch_society{
+                margin-top: 7%;
+            }
+            .contents li{
+                margin-top:0.5rem;
+            }
+        </style>
+
+    <article id="main" style="margin-top: -10%;">
+      <header class="special container">
+          <div class="contents">
+            <h2><strong>About IEEE</strong></h2>
+            <p>IEEE is the world’s largest technical professional organization for the advancement 
+                of technology. IEEE and its members inspire a global community to innovate for a 
+                better tomorrow through highly cited publications, conferences, technology standards,
+                 and professional and educational activities. IEEE is the trusted “voice” for engineering, 
+                 computing, and technology information around the globe.</p>
+            <br><br>
+          </div>
+          <div class="contents">
+            <h2><strong>SSN IEEE Student Branch</strong></h2>
+            <p>The IEEE student Branch of Sri Sivasubramaniya Nadar College of Engineering was formed on 
+                2nd May 1998. SSN IEEE Student Branch has been very active and vibrant till this date. 
+                The Student Branch was started with 10 student members in 1998. Every year the number of 
+                student members joined in IEEE has increased and presently the Branch has 200+ members. 
+                Since then, it has organized many events to provide outstanding value to its members. 
+                The objective of starting IEEE Student branch was to create awareness about the day-to-day 
+                technological developments and to make them to utilize the resources available in IEEE. 
+                And to make most of our student members involve themselves in publishing research papers and projects.</p>
+            <br><br>
+          </div>
+          <div class="contents">
+            <h2><strong>Vision</strong></h2>
+            <p>To Inspire, Enable, Empower and Energize our student members to enhance their technical interests by providing 
+                them a platform to show case their skills.</p>
+            <br><br>
+          </div>
+         <div class="contents">
+            <h2><strong>Mission</strong></h2>
+            <br>
+            <ul class="mission_content">
+                <li>Work towards inspiring more students to become members.</li>
+                <li>Increase the Membership Retention, through the benefits of IEEE.</li>
+                <li>Organize technical awareness programs for young professionals.</li>
+                <li>Form more Special Interest Groups to encourage project activity among the student members.</li>
+                <li>Kindle students’ interest in making new papers and projects.</li>
+                <li>Strive towards achieving more IEEE-sponsored awards and aim at representing papers in international conferences.</li>
+                <li>Impart sound knowledge of specific domains to the students.</li>
+                <li>Nurture students to build information systems for the benefit of society.</li>
+                <li>Empower students with the knowledge in the emerging research areas.</li>
+            </ul>
+            <br><br>
+         </div>
+         <h2><strong>Student Branch Societies</strong></h2>
+                   <div class="branch_society">
+            <img style="height: 250px; width: 200px;" src="{% static 'assets/logo/ieee-cs.png' %}">
+          <h4><strong>Computer Society</strong></h4>
+          <p class="text-justify">The IEEE Computer Society is the premier source for information, inspiration, and collaboration in computer science and engineering. </p>
+         <br>
+         </div>
+         <div class="branch_society">
+            <img style="height: 250px; width: 200px;" src="{% static 'assets/logo/ieee-embs.png' %}">
+          <h4><strong>Engineering in Medicine and Biology Society (EMBS)</strong></h4>
+          <p class="text-justify">Your global connection to the world of biomedical engineering</p>
+          <p class="text-justify">IEEE Engineering in Medicine and Biology Society (EMBS) is the world’s largest
+international society of biomedical engineers.</p>
+          <br>
+         </div>
+          <div class="branch_society">
+            <img style="height: 200px; width: 110px;" src="{% static 'assets/logo/ieee-comsoc.png' %}">
+
+          <h4><strong>IEEE ComSoc</strong></h4>
+          <p class="text-justify">IEEE Communication Society</p>
+          <p class="text-justify">IEEE ComSoc is a leading global community comprised of a diverse group of industry professionals with a common interest in advancing all communications technologies. </p>
+          </div>
+          <br>
+          <div class="branch_society">
+            <img style="height: 75px; width: 90px;" src="{% static 'assets/logo/IEEE WIE.jpg' %}">
+
+          <h4><strong>IEEE Women In Engineering</strong></h4>
+          <p class="text-justify">IEEE Women in Engineering (WIE) is one of the largest international professional organizations dedicated to promoting women engineers and scientists and inspiring girls around the world to follow their academic interests to a career in engineering.</p>
+        </div>
+        <br><br>
+        <h2><strong>Quick Info</strong></h2>
+          <div class="branch_society">
+            <table class="info_table">
+                <tbody>
+                <tr>
+                    <td class="bold_info">Date of formation</td>
+                    <td></td>
+                    <td>2 May 1998</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Initial Strength</td>
+                    <td></td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Present Strength</td>
+                    <td></td>
+                    <td>200+</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Student Branch Code</td>
+                    <td></td>
+                    <td>STB60551</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Student Branch Chapters</td>
+                    <td></td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Student Branch Library</td>
+                    <td></td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Home Page</td>
+                    <td></td>
+                    <td>https://www.ssn.edu.in/</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">E-mail</td>
+                    <td></td>
+                    <td>sb.ssnieee@gmail.com</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Newsletter Activities	</td>
+                    <td></td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="bold_info">Awards</td>
+                    <td></td>
+                    <td>Yes</td>
+                </tr>
+                </tbody>
+            </table>
+          </div>
+          <br>
+      </header>
+    </article>
+{% endblock %}
+ck %}

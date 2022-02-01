@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+<style>
+	.fa-instagram{
+		background-image: linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306c,#FD1D1D);
+		color:#FFFFFF;
+	}
+	.fa-linkedin{
+		background-color:#0077B7;
+		color: #FFFFFF;
+	}
+</style>
+
+    <link rel="icon" href="{% static 'assets/logo/ssn_logo_blue_transparent.png' %}">
+	<head>
+		<title>SSN IEEE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/slideBox/assets/slidebox.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/lightbox2-master/src/css/lightbox.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/jspkg-archive/jquery.dynatable.css' %}">
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="index">
+         <div>
+			<!-- Header -->
+				<header id="header" class="alt">
+                    <h1 id="logo"><a href="{% block homelink2 %}{% endblock %}"><img style="margin-top: -1%; width: 10%; height: 10%;" src="{% static 'assets/logo/ieee_transparent.png' %}">
+                        <img style="margin-top: -1%; width: 6%; height: 5%;" src="{% static 'assets/logo/ssn_logo_blue_transparent.png' %}">
+                    </a>
+                    </h1>
+					<nav id="nav" style="font-weight: bolder;">
+						<ul>
+							<li {% block home_active %}{% endblock %}><a href="{% block homelink1 %}{% endblock %}">Home</a></li>
+							<li {% block about_active %}{% endblock %}><a href="{% block about %}{% endblock %}">About</a></li>
+							<li {% block event_active %}{% endblock %} class="submenu">
+								<a href="{% block upcoming %}{% endblock %}">Events</a>
+								<ul>
+									<li class="submenu_content"><a href="{% block upcoming1 %}{% endblock %}">Upcoming Events</a></li>
+									<li class="submenu_content"><a href="{% block past %}{% endblock %}">Past Events</a></li>
+								</ul>
+							</li>
+							<li {% block gallery_active %}{% endblock %}><a href="{% block gallery %}{% endblock %}">Gallery</a></li>
+							<li {% block contact_active %}{% endblock %}><a href="{% block contact %}{% endblock %}">Contact</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+
+
+			<!-- Main -->
+            {% block content %}
+            {% endblock %}
+			<!-- CTA -->
+
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a target="_blank" href="https://www.facebook.com/ssnieee/" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a target="_blank" href="https://www.instagram.com/ieee_ssn" class="icon circle fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a target="_blank" href="" class="icon circle fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://github.com/SSN-IEEE" class="icon circle fa-github"><span class="label">Github</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; SSN IEEE 2022</li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollgress.min.js' %}"></script>
+            <script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+            <script src="{% static 'assets/other/marquee/jquery.marquee.js' %}"></script>
+            <script src="{% static 'assets/js/home.js' %}"></script>
+            <script src="{% static 'assets/jquery_lazyload-master/jquery.lazyload.js' %}"></script>
+            <script src="{% static 'assets/lightbox2-master/src/js/lightbox.js' %}"></script>
+            <script src="{% static 'assets/jspkg-archive/jquery.dynatable.js' %}"></script>
+
+        <!-- css -->
+             <script>
+    $(function() {
+    $("img.lazy").lazyload();
+    });
+    $(".events-table").dynatable();
+    $(".dynatable-search").hide();
+    var dynatable = $('.events-2016').data('dynatable');
+    dynatable.paginationPerPage.set(100); // Show 20 records per page
+    dynatable.process();
+    var dynatable = $('.events-2017').data('dynatable');
+    dynatable.paginationPerPage.set(100); // Show 20 records per page
+    dynatable.process();
+    $(".dynatable-record-count").hide();
+    $(".dynatable-pagination-links").hide();
+    $(".dynatable-per-page").hide();
+    </script>
+    </body>
+</html>
+

@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block homelink %}../{% endblock %}
+{% block homelink1 %}../{% endblock %}
+{% block upcoming %}../upcoming_events{% endblock %}
+{% block upcoming1 %}../upcoming_events{% endblock %}
+{% block homelink2 %}/{% endblock %}
+{% block past %}../past_events{% endblock %}
+{% block about %}../about{% endblock %}
+{% block gallery%}../gallery{% endblock %}
+{% block contact %}../contact{% endblock %}
+{% block event_active %}class = "active"{% endblock %}
+{% block content %}
+
+    <section style="background-repeat: no-repeat; opacity: 0.65; background-size: cover; background-image: url('{% static 'assets/images/back3.jpg' %}');
+     " id="banner">
+                    <div class="inner">
+
+						<header>
+							<h2>Past Events</h2>
+						</header>
+					</div>
+
+    </section>
+    <br>
+    <br><br>
+    <header><h2 style="text-align: center;"><strong>Events - 2017</strong></h2></header>
+    <table class="events-table event-table-style events-2017" style="margin-top: 0%;">
+        <thead>
+        <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Host</th>
+        <th>More Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in events %}
+            {% if item.start_date.year == 2017 %}
+            <tr class="table-rows">
+            <td>{{ item.name }}</td>
+            <td>{{ item.start_date }}</td>
+            <td id="stream{{ item.id }}">{{ item.stream }}</td>
+            <td id="hostingDept{{ item.id }}"></td>
+            <script>
+                    var host = ["IT Department", "CS Department", "Chemical Department", "Mechanical Department",
+                        "Bio-medical Department", "Mechanical Department", "ECE Department", "EEE Department", "Civil Department"
+                    , "IEEE SB"];
+                    var hostingDepartment = host[{{ item.host }}];
+                    document.getElementById("hostingDept" + {{ item.id }}).innerHTML = hostingDepartment;
+            </script>
+            <script>
+                var stream = ["Technical", "Non-Technical"];
+                var streamOfEvent = stream[{{ item.stream }}];
+                document.getElementById("stream" + {{ item.id }}).innerHTML = streamOfEvent;
+            </script>
+            <td><button style="border-radius: 5px; background-color: transparent"><a href="#openModal{{ item.id }}">Click here</a></button></td>
+            </tr>
+            <div id="openModal{{ item.id }}" class="modalDialog">
+                <div>	<a href="#close" title="Close" class="close">X</a>
+                    <div style="text-align: center;">
+                    <h2>{{ item.name }}</h2>
+                    <p>Event Date: {{ item.start_date }}</p>
+                        <p id="modalType{{ item.id }}">Event Type:</p>
+                        <script>var type = ["Conference", "Workshop", "Guest Lecture", "Symposium", "Meeting", "Competition"];
+                        var eventType = type[{{ item.type }}];
+                        document.getElementById("modalType" + {{ item.id }}).innerHTML += eventType;
+                        </script>
+                        <p id="modalHost{{ item.id }}">Hosting Department:</p>
+                        <script>
+                        var host = ["IT Department", "CS Department", "Chemical Department", "Mechanical Department",
+                            "Bio-medical Department", "Mechanical Department", "ECE Department", "EEE Department", "Civil Department"
+                        , "Common"];
+                        var hostingDepartment = host[{{ item.host }}];
+                        document.getElementById("modalHost" + {{ item.id }}).innerHTML += hostingDepartment;
+                        </script>
+                        <p>Co-ordinators: {{ item.coord }}</p>
+                        <p>Speakers: {{ item.speakers }}</p>
+
+                            {% if item.no_of_participants != -1 %}
+                                <p>Participants Count: {{ item.no_of_participants }}</p>
+                            {% endif %}
+                            {% if item.event_photo != 'NIL' %}
+
+                                <p>Event Image</p>
+                                {% static "assets/images/events" as baseUrl %}
+                                <img style="height: 500px; width: 500px;" src="{{ baseUrl }}/{{ item.event_photo }}">
+                            {% endif %}
+                            {% if item.brochure_link != 'NIL' %}
+
+                                <p>Brochure</p>
+                                {% static "assets/images/events" as baseUrl %}
+                                <iframe src="{{ baseUrl }}/{{ item.brochure_link }}" style="width:600px; height:500px;" frameborder="0"></iframe>
+                            {% endif %}
+                            {% if item.schedule_link != 'NIL' %}
+
+                                <p>Schedule</p>
+                                {% static "assets/images/events" as baseUrl %}
+                                <iframe src="{{ baseUrl }}/{{ item.schedule_link }}" style="width:600px; height:500px;" frameborder="0"></iframe>
+                            {% endif %}
+
+                    </div>
+                    </div>
+            </div>
+            {% endif %}
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <header><h2 style="text-align: center;"><strong>Events - 2016</strong></h2></header>
+    <table class="events-table event-table-style events-2016" style="margin-top: 0%;">
+        <thead>
+        <tr class="table-rows">
+        <th>Event</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Host</th>
+        <th>More Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in events %}
+            {% if item.start_date.year == 2016 %}
+            <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.start_date }}</td>
+            <td id="stream{{ item.id }}">{{ item.stream }}</td>
+            <td id="hostingDept{{ item.id }}"></td>
+            <script>
+                    var host = ["IT Department", "CS Department", "Chemical Department", "Mechanical Department",
+                        "Bio-medical Department", "Mechanical Department", "ECE Department", "EEE Department", "Civil Department"
+                    , "Common"];
+                    var hostingDepartment = host[{{ item.host }}];
+                    document.getElementById("hostingDept" + {{ item.id }}).innerHTML = hostingDepartment;
+            </script>
+            <script>
+                var stream = ["Technical", "Non-Technical"];
+                var streamOfEvent = stream[{{ item.stream }}];
+                document.getElementById("stream" + {{ item.id }}).innerHTML = streamOfEvent;
+            </script>
+            <td><button style="border-radius: 5px; background-color: transparent"><a id="modalLink" href="#openModal{{ item.id }}">Click here</a></button></td>
+            </tr>
+            <div id="openModal{{ item.id }}" class="modalDialog">
+                <div>	<a href="#close" title="Close" class="close">X</a>
+
+                    <div style="text-align: center;">
+                    <h2>{{ item.name }}</h2>
+                    <p>Event Date: {{ item.start_date }}</p>
+                        <p id="modalType{{ item.id }}">Event Type:</p>
+                        <script>var type = ["Conference", "Workshop", "Guest Lecture", "Symposium", "Meeting", "Competition"];
+                        var eventType = type[{{ item.type }}];
+                        document.getElementById("modalType" + {{ item.id }}).innerHTML += eventType;
+                        </script>
+                        <p id="modalHost{{ item.id }}">Hosting Department:</p>
+                        <script>
+                        var host = ["IT Department", "CS Department", "Chemical Department", "Mechanical Department",
+                            "Bio-medical Department", "Mechanical Department", "ECE Department", "EEE Department", "Civil Department"
+                        , "Common"];
+                        var hostingDepartment = host[{{ item.host }}];
+                        document.getElementById("modalHost" + {{ item.id }}).innerHTML += hostingDepartment;
+                        </script>
+                        <p>Co-ordinators: {{ item.coord }}</p>
+                        <p>Speakers: {{ item.speakers }}</p>
+
+                            {% if item.no_of_participants != -1 %}
+                                <p>Participants Count: {{ item.no_of_participants }}</p>
+                            {% endif %}
+                            {% if item.event_photo != 'NIL' %}
+
+                                <p>Event Image</p>
+                                {% static "assets/images/events" as baseUrl %}
+                                <img style="height: 500px; width: 500px;" src="{{ baseUrl }}/{{ item.event_photo }}">
+                            {% endif %}
+                            {% if item.brochure_link != 'NIL' %}
+
+                                <p>Brochure</p>
+                                {% static "assets/images/events" as baseUrl %}
+                                <iframe src="{{ baseUrl }}/{{ item.brochure_link }}" style="width:600px; height:500px;" frameborder="0"></iframe>
+                            {% endif %}
+                            {% if item.schedule_link != 'NIL' %}
+
+                                <p>Schedule</p>
+                                {% static "assets/images/events" as baseUrl %}
+                                <iframe src="{{ baseUrl }}/{{ item.schedule_link }}" style="width:600px; height:500px;" frameborder="0"></iframe>
+                            {% endif %}
+
+                    </div>
+
+                    </div>
+            </div>
+            {% endif %}
+
+        {% endfor %}
+        </tbody>
+    </table>
+<br><br><br>
+{% endblock %}
